@@ -1,4 +1,4 @@
-from youtube_api_wrapper.easy_wrapper import *
+from youtube_easy_api.easy_wrapper import *
 
 PROJECT_PATH = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir))
 CREDENTIALS_PATH = PROJECT_PATH

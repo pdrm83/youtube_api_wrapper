@@ -9,7 +9,7 @@ README = (HERE / "README.md").read_text()
 
 # This call to setup() does all the work
 setup(
-    name="youtube_api_wrapper",
+    name="youtube_easy_api",
     version="0.0.1",
     description="How to search among Youtube videos and extract their metadata using an easy interface.",
     long_description=README,
@@ -23,12 +23,12 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
-    packages=["youtube_api_wrapper"],
+    packages=["youtube_easy_api"],
     include_package_data=True,
     install_requires=['os', 'pickle', 'urllib', 'googleapiclient', 'google_auth_oauthlib', 'google'],
     entry_points={
         "console_scripts": [
-            "pdrm83=youtube_api_wrapper.__main__:main",
+            "pdrm83=youtube_easy_api.__main__:main",
         ]
     },
 )

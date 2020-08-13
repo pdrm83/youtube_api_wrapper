@@ -1,5 +1,3 @@
-os
-pickle
 urllib
 googleapiclient
 google_auth_oauthlib

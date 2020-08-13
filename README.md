@@ -5,11 +5,12 @@ comments can be an excellent source of NLP projects. YouTube API enables you to 
 search criteria but it might be a bit confusing for some people. This library provides you a very easy interface to 
 extract Youtube video metadata including title, comments, and stats. Hope you enjoy it. 
 
-**Note-** You must setup your **credentials** before being able to use this library. To learn how to setup credentials, 
-read the link below. This is an excellent post about Youtube API service, and help you step-by-step configure the 
-credentials. You need to pass the FOLDER_PATH of the credentials when you initialize this library.
+**Note-** You must setup your **credentials** before being able to use this library. 
 
-[Extracting YouTube Comments with YouTube API & Python](https://python.gotrained.com/youtube-api-extracting-comments/) 
+To learn how to setup credentials, read this link: [Extracting YouTube Comments with YouTube API & Python](https://python.gotrained.com/youtube-api-extracting-comments/) 
+
+This is an excellent post about Youtube API service, and help you step-by-step configure the credentials. You need to 
+pass the FOLDER_PATH of the credentials when you want to initialize the `youtube-easy-api` library.
 
 
 ## Library
@@ -26,14 +27,14 @@ The library requires the following libraries:
 
 It can be installed using pip:
 ```python
-pip install youtube_api_wrapper
+pip install youtube-easy-api
 ```
 
 ## Usage
 
-You can search Youtube service using a keyword, and receive an ordered lists of videos according to the search configs.
+You can search Youtube service using a `keyword`, and receive an ordered lists of videos according to the search configs.
 ```python
-from youtube_api_wrapper.easy_wrapper import *
+from youtube_easy_api.easy_wrapper import *
 
 easy_wrapper = YoutubeEasyWrapper()
 easy_wrapper.initialize(credentials_path=CREDENTIALS_PATH)
@@ -46,10 +47,10 @@ print(video_id)
 '_uQrJ0TkZlc'
 ```
 
-You can also extract the metadata of a video by passing its video_id. 
+You can also extract the metadata of a video by passing its `video_id`. 
 
 ```python
-from youtube_api_wrapper.easy_wrapper import *
+from youtube_easy_api.easy_wrapper import *
 
 easy_wrapper = YoutubeEasyWrapper()
 easy_wrapper.initialize(credentials_path=CREDENTIALS_PATH)
