@@ -30,13 +30,13 @@ Make sure the `pip` is upgraded to the latest version.
 
 ## Usage
 
-The library currently support the method below.
+The library currently support the methods below.
 
 * `search_videos_by_keywords`
 * `get_video_details`
 
-You can search Youtube service by passing a `keyword` to the `search_videos_by_keywords` method. You will receive an 
-ordered lists of videos according to the search configs.
+You can search Youtube service by passing a `search_keyword` to the `search_videos_by_keywords` method. You will 
+receive an ordered lists of videos according to the search configs.
 
 ```python
 from youtube_easy_api.easy_wrapper import *
