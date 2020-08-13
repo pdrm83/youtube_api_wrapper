@@ -8,14 +8,15 @@ extract Youtube video metadata including title, comments, and stats. Hope you en
 **Note-** You must setup your **credentials** before being able to use this library. To learn how to setup credentials,
 read this link: [Extracting YouTube Comments with YouTube API & Python](https://python.gotrained.com/youtube-api-extracting-comments/). 
 This is an excellent post about Youtube API service, and help you step-by-step configure the credentials. You need to 
-pass the FOLDER_PATH of the credentials when you want to initialize the `youtube-easy-api` library.
+enter the `CREDENTIALS_PATH` when you want to initialize the `youtube-easy-api` library. For more information, you can 
+look at the examples below.
 
 
 ## Library
 The library requires the following libraries:
 
 * urllib
-* googleapiclient
+* google-api-python-client
 * google_auth_oauthlib
 * google
 
@@ -25,6 +26,8 @@ It can be installed using pip:
 ```python
 pip install youtube-easy-api
 ```
+
+Make sure the `pip` is upgraded to the latest version. 
 
 ## Usage
 

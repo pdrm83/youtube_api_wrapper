@@ -25,7 +25,7 @@ setup(
     ],
     packages=["youtube_easy_api"],
     include_package_data=True,
-    install_requires=['urllib', 'googleapiclient', 'google_auth_oauthlib', 'google'],
+    install_requires=['urllib', 'google-api-python-client', 'google-auth-oauthlib', 'google'],
     entry_points={
         "console_scripts": [
             "pdrm83=youtube_easy_api.__main__:main",
