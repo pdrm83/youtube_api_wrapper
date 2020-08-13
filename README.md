@@ -16,7 +16,7 @@ look at the examples below.
 The library requires the following libraries:
 
 * google-api-python-client
-* google_auth_oauthlib
+* google-auth-oauthlib
 * google
 
 ## Install
@@ -30,7 +30,14 @@ Make sure the `pip` is upgraded to the latest version.
 
 ## Usage
 
-You can search Youtube service using a `keyword`, and receive an ordered lists of videos according to the search configs.
+The library currently support the method below.
+
+* `search_videos_by_keywords`
+* `get_video_details`
+
+You can search Youtube service by passing a `keyword` to the `search_videos_by_keywords` method. You will receive an 
+ordered lists of videos according to the search configs.
+
 ```python
 from youtube_easy_api.easy_wrapper import *
 
@@ -48,7 +55,7 @@ print(video_id)
 '_uQrJ0TkZlc'
 ```
 
-You can also extract the metadata of a video by passing its `video_id`. 
+You can also extract the metadata of a video by passing its `video_id` to the method `get_video_details`. 
 
 ```python
 from youtube_easy_api.easy_wrapper import *
