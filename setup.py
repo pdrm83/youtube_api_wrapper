@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="youtube_easy_api",
-    version="0.0.4",
+    version="0.0.5",
     description="How to search among Youtube videos and extract their metadata using an easy interface.",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -25,7 +25,7 @@ setup(
     ],
     packages=["youtube_easy_api"],
     include_package_data=True,
-    install_requires=['urllib', 'google-api-python-client', 'google-auth-oauthlib', 'google'],
+    install_requires=['google-api-python-client', 'google-auth-oauthlib', 'google'],
     entry_points={
         "console_scripts": [
             "pdrm83=youtube_easy_api.__main__:main",

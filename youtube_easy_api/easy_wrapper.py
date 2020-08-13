@@ -5,7 +5,6 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
-from urllib.parse import urlparse, parse_qs
 
 SCOPES = ['https://www.googleapis.com/auth/youtube.force-ssl']
 API_SERVICE_NAME = 'youtube'
@@ -81,13 +80,6 @@ class YoutubeEasyWrapper:
                                                              textFormat='plainText')
 
         return output
-
-    @staticmethod
-    def extract_video_id(url):
-        url_data = urlparse(url)
-        query = parse_qs(url_data.query)
-        video_id = query["v"][0]
-        return video_id
 
     @staticmethod
     def extract_video_comments(service, **kwargs):

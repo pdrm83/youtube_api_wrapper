@@ -15,7 +15,6 @@ look at the examples below.
 ## Library
 The library requires the following libraries:
 
-* urllib
 * google-api-python-client
 * google_auth_oauthlib
 * google
