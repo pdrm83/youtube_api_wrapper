@@ -25,5 +25,7 @@ def test_search_videos_by_keyword():
     search_keyword = 'python'
     results = easy_wrapper.search_videos_by_keywords(q=search_keyword, part='id,snippet', type='video', order='relevance')
     num_result = 1
-    video_id = results[num_result][0]
+    video_id = results[num_result]['video_id']
     assert video_id == '_uQrJ0TkZlc'
+
+test_search_videos_by_keyword()

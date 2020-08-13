@@ -52,14 +52,15 @@ class YoutubeEasyWrapper:
             else:
                 break
 
-        result = []
+        output = []
         for item in items:
-            title = item['snippet']['title']
-            channel = item['snippet']['channelTitle']
-            video_id = item['id']['videoId']
-            result.extend([(video_id, title, channel)])
+            result = dict()
+            result['title'] = item['snippet']['title']
+            result['channel'] = item['snippet']['channelTitle']
+            result['video_id'] = item['id']['videoId']
+            output.append(result)
 
-        return result
+        return output
 
     def get_video_details(self, video_id):
         list_videos_by_id = self.service.videos().list(id=video_id,

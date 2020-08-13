@@ -30,6 +30,8 @@ pip install youtube_api_wrapper
 ```
 
 ## Usage
+
+You can search Youtube service using a keyword, and receive an ordered lists of videos according to the search configs.
 ```python
 from youtube_api_wrapper.easy_wrapper import *
 
@@ -37,7 +39,8 @@ easy_wrapper = YoutubeEasyWrapper()
 easy_wrapper.initialize(credentials_path=CREDENTIALS_PATH)
 search_keyword = 'python'
 results = easy_wrapper.search_videos_by_keywords(q=search_keyword, part='id,snippet', type='video', order='relevance')
-video_id = results[1][0]
+order_id = 0
+video_id = results[order_id]['video_id']
 
 print(video_id)
 '_uQrJ0TkZlc'
