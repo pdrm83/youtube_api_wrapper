@@ -15,6 +15,7 @@ def test_get_video_details_02():
     easy_wrapper = YoutubeEasyWrapper()
     easy_wrapper.initialize(credentials_path=CREDENTIALS_PATH)
     metadata = easy_wrapper.get_video_details(video_id='rdjnkb4ONWk')
+    print(metadata['statistics']['likeCount'])
     assert metadata['title'] == 'The Pink Panther Show Episode 59 - Slink Pink'
 
 
@@ -29,3 +30,5 @@ def test_search_videos_by_keyword():
     order_id = 1
     video_id = results[order_id]['video_id']
     assert video_id == '_uQrJ0TkZlc'
+
+test_get_video_details_02()

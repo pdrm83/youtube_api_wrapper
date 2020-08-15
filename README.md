@@ -23,7 +23,7 @@ The library requires the following libraries:
 
 It can be installed using pip:
 ```python
-pip install youtube-easy-api
+pip3 install youtube-easy-api
 ```
 
 Make sure the `pip` is upgraded to the latest version. 
@@ -66,6 +66,9 @@ metadata = easy_wrapper.get_video_details(video_id='rdjnkb4ONWk')
 
 print(metadata['title']) 
 'The Pink Panther Show Episode 59 - Slink Pink'
+
+print(metadata['statistics']['likeCount'])
+285373
 ```
 
 
