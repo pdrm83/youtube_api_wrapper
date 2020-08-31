@@ -1,3 +1,5 @@
+[![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)](https://github.com/DAVFoundation/captain-n3m0/blob/master/LICENSE)
+
 # An Easy Wrapper for Youtube API 3.0
 YouTube is one of the main sources of education, entertainment, advertisement, and much more. This service has so much 
 data that one can use to run data science projects or build machine learning products. For example, YouTube video 
