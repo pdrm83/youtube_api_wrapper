@@ -1,21 +1,15 @@
 [![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)](https://github.com/DAVFoundation/captain-n3m0/blob/master/LICENSE)
 
 # An Easy Wrapper for Youtube API 3.0
-YouTube is one of the main sources of education, entertainment, advertisement, and much more. This service has so much 
-data that one can use to run data science projects or build machine learning products. For example, YouTube video 
-comments can be an excellent source of NLP projects. YouTube API enables you to search for videos matching specific 
-search criteria but it might be a bit confusing for some people. This library provides you a very easy interface to 
-extract Youtube video metadata including title, comments, and stats. Hope you enjoy it. 
-
-**Note-** You must setup your **credentials** before being able to use this library. To learn how to setup credentials,
-read this link: [Extracting YouTube Comments with YouTube API & Python](https://python.gotrained.com/youtube-api-extracting-comments/). 
-This is an excellent post about Youtube API service, and help you step-by-step configure the credentials. You need to 
-enter the `CREDENTIALS_PATH` when you want to initialize the `youtube-easy-api` library. For more information, you can 
+This module provides you an easy interface to extract Youtube video metadata including title, comments, and stats. You
+must setup your **API KEY** before being able to use this module. If you have your Google API key, you can skip this
+section; otherwise, check out this video: [Getting Started - Creating an API Key and Querying the API](https://www.youtube.com/watch?v=th5_9woFJmk).
+You must enter the `API_KEY` when you want to initialize the `youtube-easy-api` module. For more information, you can 
 look at the examples below.
 
 
 ## Library
-The library requires the following libraries:
+The module requires the following libraries:
 
 * google-api-python-client
 * google-auth-oauthlib
@@ -32,10 +26,10 @@ Make sure the `pip` is upgraded to the latest version.
 
 ## Usage
 
-The library currently support the methods below.
+The module currently support the methods below.
 
 * `search_videos_by_keywords`
-* `get_video_details`
+* `get_video_metadata`
 
 You can search Youtube service by passing a `search_keyword` to the `search_videos_by_keywords` method. You will 
 receive an ordered lists of videos according to the search configs.
@@ -44,7 +38,7 @@ receive an ordered lists of videos according to the search configs.
 from youtube_easy_api.easy_wrapper import *
 
 easy_wrapper = YoutubeEasyWrapper()
-easy_wrapper.initialize(credentials_path=CREDENTIALS_PATH)
+easy_wrapper.initialize(api_key=API_KEY)
 search_keyword = 'python'
 results = easy_wrapper.search_videos_by_keywords(q=search_keyword,
                                                  part='id,snippet',
@@ -57,14 +51,14 @@ print(video_id)
 '_uQrJ0TkZlc'
 ```
 
-You can also extract the metadata of a video by passing its `video_id` to the method `get_video_details`. 
+You can also extract the metadata of a video by passing its `video_id` to the method `get_video_metadata`. 
 
 ```python
 from youtube_easy_api.easy_wrapper import *
 
 easy_wrapper = YoutubeEasyWrapper()
-easy_wrapper.initialize(credentials_path=CREDENTIALS_PATH)
-metadata = easy_wrapper.get_video_details(video_id='rdjnkb4ONWk')
+easy_wrapper.initialize(api_key=API_KEY)
+metadata = easy_wrapper.get_video_metadata(video_id='rdjnkb4ONWk')
 
 print(metadata['title']) 
 'The Pink Panther Show Episode 59 - Slink Pink'

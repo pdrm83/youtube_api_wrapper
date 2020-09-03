@@ -16,24 +16,31 @@ class YoutubeEasyWrapper:
     def __init__(self):
         self.service = None
 
-    def initialize(self, credentials_path):
-        client_secrets_file = os.path.join(credentials_path, 'client_secret.json')
-        credentials = None
-        if os.path.exists(os.path.join(credentials_path, 'token.pickle')):
-            with open(os.path.join(credentials_path, 'token.pickle'), 'rb') as token:
-                credentials = pickle.load(token)
+    def initialize(self, **kwargs):
+        if 'api_key' in kwargs.keys():
+            api_key = kwargs['api_key']
+            self.service = build(API_SERVICE_NAME, API_VERSION, developerKey=api_key)
+        elif 'credentials_path' in kwargs.keys():
+            credentials_path = kwargs['credentials_path']
+            credentials = None
+            if os.path.exists(os.path.join(credentials_path, 'token.pickle')):
+                with open(os.path.join(credentials_path, 'token.pickle'), 'rb') as token:
+                    credentials = pickle.load(token)
 
-        if not credentials or not credentials.valid:
-            if credentials and credentials.expired and credentials.refresh_token:
-                credentials.refresh(Request())
-            else:
-                flow = InstalledAppFlow.from_client_secrets_file(client_secrets_file, SCOPES)
-                credentials = flow.run_console()
+            if not credentials or not credentials.valid:
+                client_secrets_file = os.path.join(credentials_path, 'client_secret.json')
+                if credentials and credentials.expired and credentials.refresh_token:
+                    credentials.refresh(Request())
+                else:
+                    flow = InstalledAppFlow.from_client_secrets_file(client_secrets_file, SCOPES)
+                    credentials = flow.run_console()
 
-            with open(os.path.join(credentials_path, 'token.pickle'), 'wb') as token:
-                pickle.dump(credentials, token)
+                with open(os.path.join(credentials_path, 'token.pickle'), 'wb') as token:
+                    pickle.dump(credentials, token)
 
-        self.service = build(API_SERVICE_NAME, API_VERSION, credentials=credentials)
+            self.service = build(API_SERVICE_NAME, API_VERSION, credentials=credentials)
+        else:
+            raise Exception("The credentials were not valid. Please check your credentials.")
 
     def search_videos_by_keywords(self, **kwargs):
         items = []
@@ -61,7 +68,7 @@ class YoutubeEasyWrapper:
 
         return output
 
-    def get_video_details(self, video_id):
+    def get_video_metadata(self, video_id):
         list_videos_by_id = self.service.videos().list(id=video_id,
                                                        part="id, snippet, contentDetails, statistics").execute()
         results = list_videos_by_id.get("items", [])[0]
