@@ -42,7 +42,15 @@ class YoutubeEasyWrapper:
         else:
             raise Exception("The credentials were not valid. Please check your credentials.")
 
-    def search_videos_by_keywords(self, **kwargs):
+    def search_videos(self, search_keyword, **kwargs):
+        kwargs['q'] = search_keyword
+        if 'order' in kwargs.items():
+            kwargs['order'] = kwargs['order']
+        else:
+            kwargs['order'] = 'relevance'
+        kwargs['part'] = 'id,snippet'
+        kwargs['type'] = 'video'
+
         items = []
         results = self.service.search().list(**kwargs).execute()
 
@@ -68,7 +76,7 @@ class YoutubeEasyWrapper:
 
         return output
 
-    def get_video_metadata(self, video_id):
+    def get_metadata(self, video_id):
         list_videos_by_id = self.service.videos().list(id=video_id,
                                                        part="id, snippet, contentDetails, statistics").execute()
         results = list_videos_by_id.get("items", [])[0]
@@ -78,7 +86,7 @@ class YoutubeEasyWrapper:
         output['description'] = results['snippet']['description']
         output['publishedAt'] = results['snippet']['publishedAt']
         output['contentDetails'] = results['contentDetails']
-        output['statistics'] = results['statistics']
+        output['D'] = results['statistics']
 
         if results['statistics']['commentCount']:
             output['comments'] = self.extract_video_comments(self.service,

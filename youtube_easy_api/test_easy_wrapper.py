@@ -4,29 +4,33 @@ PROJECT_PATH = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir
 CREDENTIALS_PATH = '../../../Secrets/YouTube'
 
 
-def test_get_video_details_01():
+def test_get_metadata_01():
     easy_wrapper = YoutubeEasyWrapper()
     easy_wrapper.initialize(credentials_path=CREDENTIALS_PATH)
-    metadata = easy_wrapper.get_video_metadata(video_id='LsK-xG1cLY')
-    assert metadata['comments'][0] == 'Your channel has saved me a looooooot of time. Thanks!'
+    metadata = easy_wrapper.get_metadata(video_id='f3lUEnMaiAU')
+    print(metadata['comments'][0])
 
 
-def test_get_video_details_02():
+def test_get_metadata_02():
     easy_wrapper = YoutubeEasyWrapper()
     easy_wrapper.initialize(credentials_path=CREDENTIALS_PATH)
-    metadata = easy_wrapper.get_video_metadata(video_id='rdjnkb4ONWk')
+    metadata = easy_wrapper.get_metadata(video_id='rdjnkb4ONWk')
     print(metadata['statistics']['likeCount'])
     assert metadata['title'] == 'The Pink Panther Show Episode 59 - Slink Pink'
 
 
-def test_search_videos_by_keyword():
+def test_search_videos_01():
     easy_wrapper = YoutubeEasyWrapper()
     easy_wrapper.initialize(credentials_path=CREDENTIALS_PATH)
-    search_keyword = 'python'
-    results = easy_wrapper.search_videos_by_keywords(q=search_keyword,
-                                                     part='id,snippet',
-                                                     type='video',
-                                                     order='relevance')
+    results = easy_wrapper.search_videos(search_keyword='python', order='relevance')
     order_id = 1
     video_id = results[order_id]['video_id']
     assert video_id == '_uQrJ0TkZlc'
+
+
+def test_search_videos_02():
+    easy_wrapper = YoutubeEasyWrapper()
+    easy_wrapper.initialize(credentials_path=CREDENTIALS_PATH)
+    results = easy_wrapper.search_videos(search_keyword='python', order='relevance')
+    order_id = 1
+    print(results[order_id]['video_id'])

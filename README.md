@@ -7,7 +7,6 @@ section; otherwise, check out this video: [Getting Started - Creating an API Key
 You must enter the `API_KEY` when you want to initialize the `youtube-easy-api` module. For more information, you can 
 look at the examples below.
 
-
 ## Library
 The module requires the following libraries:
 
@@ -28,10 +27,10 @@ Make sure the `pip` is upgraded to the latest version.
 
 The module currently support the methods below.
 
-* `search_videos_by_keywords`
-* `get_video_metadata`
+* `search_videos`
+* `get_metadata`
 
-You can search Youtube service by passing a `search_keyword` to the `search_videos_by_keywords` method. You will 
+You can search Youtube service by passing a `search_keyword` to the `search_videos` method. You will 
 receive an ordered lists of videos according to the search configs.
 
 ```python
@@ -39,11 +38,7 @@ from youtube_easy_api.easy_wrapper import *
 
 easy_wrapper = YoutubeEasyWrapper()
 easy_wrapper.initialize(api_key=API_KEY)
-search_keyword = 'python'
-results = easy_wrapper.search_videos_by_keywords(q=search_keyword,
-                                                 part='id,snippet',
-                                                 type='video',
-                                                 order='relevance')
+results = easy_wrapper.search_videos(search_keyword='python', order='relevance')
 order_id = 1
 video_id = results[order_id]['video_id']
 
@@ -58,7 +53,7 @@ from youtube_easy_api.easy_wrapper import *
 
 easy_wrapper = YoutubeEasyWrapper()
 easy_wrapper.initialize(api_key=API_KEY)
-metadata = easy_wrapper.get_video_metadata(video_id='rdjnkb4ONWk')
+metadata = easy_wrapper.get_metadata(video_id='rdjnkb4ONWk')
 
 print(metadata['title']) 
 'The Pink Panther Show Episode 59 - Slink Pink'
@@ -67,6 +62,4 @@ print(metadata['statistics']['likeCount'])
 285373
 ```
 
-
 And, that's pretty much it!
-
