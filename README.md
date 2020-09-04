@@ -1,4 +1,5 @@
-[![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)](https://github.com/DAVFoundation/captain-n3m0/blob/master/LICENSE)
+[![license](https://img.shields.io/badge/license-MIT-success)](https://github.com/pdrm83/Youtube_API_Wrapper/blob/master/LICENSE.md)
+[![doc](https://img.shields.io/badge/docs-Medium-blue)](https://towardsdatascience.com/an-easy-python-wrapper-for-youtube-data-api-3-0-a0f1b9f4c964)
 
 # An Easy Wrapper for YouTube Data API 3.0
 This module provides you an easy interface to extract YouTube video metadata including title, comments, and stats. You
