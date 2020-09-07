@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="youtube_easy_api",
-    version="0.2.0",
+    version="0.2.1",
     description="How to search among Youtube videos and extract their metadata using an easy interface.",
     long_description=README,
     long_description_content_type="text/markdown",

@@ -8,16 +8,14 @@ section; otherwise, check out this video: [Getting Started - Creating an API Key
 You must enter the `API_KEY` when you want to initialize the `youtube-easy-api` module. Check out the examples below. 
 For more detailed description, you can read this article: [An Easy Python Wrapper for YouTube Data API 3.0](https://towardsdatascience.com/an-easy-python-wrapper-for-youtube-data-api-3-0-a0f1b9f4c964)
 
-## Library
+## Install
 The module requires the following libraries:
 
 * google-api-python-client
 * google-auth-oauthlib
 * google
 
-## Install
-
-It can be installed using pip:
+The, it can be installed using pip:
 ```python
 pip3 install youtube-easy-api
 ```
@@ -25,7 +23,6 @@ pip3 install youtube-easy-api
 Make sure the `pip` is upgraded to the latest version. 
 
 ## Usage
-
 The module currently support the methods below.
 
 * `search_videos`
