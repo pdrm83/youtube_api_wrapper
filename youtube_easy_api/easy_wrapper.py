@@ -86,9 +86,9 @@ class YoutubeEasyWrapper:
         output['description'] = results['snippet']['description']
         output['publishedAt'] = results['snippet']['publishedAt']
         output['contentDetails'] = results['contentDetails']
-        output['D'] = results['statistics']
+        output['statistics'] = results['statistics']
 
-        if results['statistics']['commentCount']:
+        if 'commentCount' in results['statistics']:
             output['comments'] = self.extract_video_comments(self.service,
                                                              part='snippet',
                                                              videoId=video_id,
